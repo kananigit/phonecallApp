@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <!-- un-comment this code to enable service worker
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(() => console.log('service worker installed'))
+          .catch(err => console.log('Error', err));
+      }
+    </script>-->
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- my custom js -->
+    <script type="text/javascript">
+	
+
+		document.addEventListener("deviceready", onDeviceReady, false);
+		
+		function onDeviceReady(){
+		
+		}
+		
+		function callphone (phoneNumber){
+			window.plugins.CallNumber.callNumber(function(){}, function(e){}, phoneNumber);
+		}
+	
+	</script>
+	
+	<script src="js/app.js">
+	
+	
+	</script>
+	
+	
+  </head>
+  <body ng-app="phonecallApp" ng-controller="callController">
+
+    <ion-pane>
+      <ion-header-bar class="bar-stable">
+        <h1 class="title">Phonecall App</h1>
+      </ion-header-bar>
+	  
+      <ion-content>
+		<ion-view>
+	
+		  <div class="row" >
+			
+			<div class="col col-50 ">
+				<img src="img/mum.jpg" style="width:100%" onclick="callphone('+211111111')" >
+				</br>mum
+			</div>
+
+			<div class="col col-50" >
+				<img src="img/dad.jpg"  style="width:100%" onclick="callphone('+222888888')" >
+				</br>dad
+			</div>
+		</div>
+		
+		<!--
+		<div><input type="button" id="buttoncall" value="call dady"onclick="callphone('+211111111')";> </div>
+		<div><input type="button" id="buttoncall" value="call mumy"onclick="callphone('+222888888')";> </div>
+		-->
+		<!--
+			
+		  <div class="row" >
+			
+			<div class="col col-50 ">
+				<img src="img/mum.jpg" style="width:100%" ng-click="triggerCall(data.mum)" ng-if="data.mum" >
+				</br>Call {{data.dad}} mum
+			</div>
+
+			<div class="col col-50">
+				<img src="img/dad.jpg"  style="width:100%" ng-click="triggerCall(data.dad)" ng-if="data.dad" >
+				</br>Call {{data.dad}} dad
+			</div>
+		</div>
+		-->
+		
+		
+			
+
+		</ion-view>
+      </ion-content>
+    </ion-pane>
+  </body>
+</html>
