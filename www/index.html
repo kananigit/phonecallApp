@@ -37,10 +37,40 @@
 		
 		function onDeviceReady(){
 		
+			PhoneCallTrap.onCall(function(state) {
+			//console.log("CHANGE STATE: " + state);
+			//alert("CHANGE STATE: " + state);
+
+			switch (state) {
+				case "RINGING":
+					//console.log("Phone is ringing");
+					//alert("Phone is ringing");
+					break;
+				case "OFFHOOK":
+					//console.log("Phone is off-hook");
+					//alert("Phone is off-hook");
+					break;
+
+				case "IDLE":
+					//console.log("Phone is idle");
+					//alert("Phone is idle");
+					break;
+			}
+			
+			alert("CHANGE STATE: " + state);
+		});
+		
 		}
 		
 		function callphone (phoneNumber){
 			window.plugins.CallNumber.callNumber(function(){}, function(e){}, phoneNumber);
+			
+			<!---->
+			
+			
+
+			<!---->
+			
 		}
 	
 	</script>
